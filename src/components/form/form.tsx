@@ -18,6 +18,8 @@ const Form = memo((props: FormProps) => {
     const [store, setStore] = useState<Store>(() => {
         return new Store(initValues);
     });
+
+    const [flag, setFlag] = useState(false);
     
     return (
         <FormContext.Provider value={store}>
@@ -25,9 +27,12 @@ const Form = memo((props: FormProps) => {
                 onSubmit && onSubmit(e, store.getFieldsValue());
             }} onReset={() => {
                 store.setFieldsValue(initValues);
+                setFlag((pre) => !pre);
             }}>
                 {props.children}
             </TaroForm>
         </FormContext.Provider>
     )
 });
+
+export default Form;

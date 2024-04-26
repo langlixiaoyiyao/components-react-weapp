@@ -20,7 +20,7 @@
     "build:jd": "taro build --type jd",
     "build:quickapp": "taro build --type quickapp",
     "build:harmony-hybrid": "taro build --type harmony-hybrid",
-    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:weapp": "SET NODE_OPTIONS=--openssl-legacy-provider && npm run build:weapp -- --watch",
     "dev:swan": "npm run build:swan -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",
@@ -63,6 +63,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@tarojs/cli": "3.6.27",
     "@tarojs/mini-runner": "3.6.27",
+    "@tarojs/plugin-html": "^3.6.27",
     "@tarojs/test-utils-react": "^0.1.1",
     "@tarojs/webpack-runner": "3.6.27",
     "@types/jest": "^29.3.1",
@@ -85,7 +86,6 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^5.1.0",
-    "webpack": "4.46.0",
-    "@tarojs/plugin-html": "^3.6.27"
+    "webpack": "4.46.0"
   }
 }

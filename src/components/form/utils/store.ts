@@ -1,6 +1,6 @@
 class Store {
-    private values: Object = {};
-    constructor(initValues: Object | undefined) {
+    private values: object = {};
+    constructor(initValues: object | undefined) {
         if (initValues) {
             this.values = JSON.parse(JSON.stringify(initValues));
         }
@@ -11,7 +11,7 @@ class Store {
     getFieldValue(name: string) {
         return this.values[name];
     }
-    setFieldsValue(values: Object | undefined) {
+    setFieldsValue(values: object | undefined) {
         if (values) {
             this.values = JSON.parse(JSON.stringify(values));
         } else {
