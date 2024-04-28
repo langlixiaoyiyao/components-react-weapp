@@ -1,0 +1,17 @@
+.compoent_ellipsis {
+    position: relative;
+    background-color: #fff;
+    ._opera {
+        color: green;
+    }
+    .span {
+        display: inline;
+    }
+    &_hidden {
+        line-height: 1.6;
+        position: absolute;
+        top: -999px;
+        left: -999px;
+        width: 100%;
+    }
+}
