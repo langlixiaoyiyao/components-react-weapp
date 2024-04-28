@@ -42,7 +42,7 @@ export default function Index() {
       <Button formType='submit'>提交</Button>
     </Form>
     <div style={{height: '100vh', backgroundColor: 'green', marginBottom: '800rpx'}}></div>
-    <Ellipsis content="提交提交提交提交提交提交提交提交提交提交" />
+    <Ellipsis content="提交提交提交提交提交提交提交提交提交提交、提交提交提交提交提交提交提交提交提交提交、提交提交提交提交提交提交提交提交提交提交" />
     </div>
     
   )
