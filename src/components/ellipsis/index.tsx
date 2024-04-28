@@ -61,8 +61,8 @@ export const Ellipsis = memo((props: any) => {
         }).exec();
     };
 
-    const handleClick = (flag: boolean) => {
-        if (flag) {
+    const handleClick = () => {
+        if (expand) {
             setShowContent(collapseInnerText.current);
         } else {
             setShowContent(content);
@@ -73,7 +73,7 @@ export const Ellipsis = memo((props: any) => {
     useEffect(() => {
         if (sid) {
             Taro.createSelectorQuery().select(`#${sid}`).fields({
-                computedStyle: ['lineHeight', 'fontSize'],
+                computedStyle: ['lineHeight'],
             }, function(res) {
                 allowHeight.current = (res.lineHeight.replace('px', '') - 0) * row;
                 calcEllipse();
@@ -87,7 +87,7 @@ export const Ellipsis = memo((props: any) => {
                 {initEnd || exceeded ? 
                     <>
                     <span className='span'>{showContent}</span>
-                    {exceeded ?  '' : <span className='compoent_ellipsis_opera span' onClick={() => {handleClick(expand)}}>{expand ? collapseText : expandText}</span>}
+                    {exceeded ?  '' : <span className='compoent_ellipsis_opera span' onClick={handleClick}>{expand ? collapseText : expandText}</span>}
                     </>
                 : null}
             </div>
