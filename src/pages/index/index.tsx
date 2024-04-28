@@ -31,7 +31,7 @@ export default function Index() {
 
   return (
     <div>
-      <Form onSubmit={(e, value) => {console.log(value);}} initValues={{username: 'sb', choose: true}}>
+      <Form onSubmit={(e, value) => {console.log(value);}} initValues={{username: 'hh', choose: true}}>
       <FormItem  name="username">
         <Input />
       </FormItem>

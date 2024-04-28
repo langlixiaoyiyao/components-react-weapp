@@ -1,12 +1,11 @@
-import React, {memo, useEffect, useState, useMemo, useCallback, useRef} from 'react';
+import {memo, useEffect, useState, useCallback, useRef} from 'react';
 import Taro from '@tarojs/taro';
 import './index.scss';
 
 // 使用该组件样式一定要给compoent_ellipsis_hidden 和 compoent_ellipsis_content设置line-light，不可使用父元素传递下来的lineHeight
 export const Ellipsis = memo((props: any) => {
 
-    // width可以直接是设计图的尺寸
-    const {width, row=3, expandText='展开', collapseText='收起', content='文本'} = props;
+    const {row=3, expandText='展开', collapseText='收起', content='文本'} = props;
 
     const [expand, setExpand] = useState(false); //当前状态是否处于展开状态
     const [showContent, setShowContent] = useState(content);
@@ -16,7 +15,7 @@ export const Ellipsis = memo((props: any) => {
 
     const collapseInnerText = useRef('');
 
-    const idRef = useCallback((res) => {
+    const idRef = useCallback((res: any) => {
         if (res) {
             setSid(res.sid);
         }
@@ -43,7 +42,7 @@ export const Ellipsis = memo((props: any) => {
         if (!allowHeight.current) return;
         const middle:number = Math.floor((start + end) / 2);
         const text = content.slice(0, middle);
-        const innerText = text + '...' + (expand ? collapseText : expandText);
+        const innerText = text + '...' + expandText;
         setShowContent(innerText);
         if (end - start <= 1) {
             setInitEnd(true);
