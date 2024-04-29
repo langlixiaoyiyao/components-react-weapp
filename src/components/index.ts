@@ -1,3 +1,2 @@
-export * from './form/form';
-
+export * from './form';
 export * from './ellipsis';

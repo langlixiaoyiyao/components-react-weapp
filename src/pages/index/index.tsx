@@ -1,5 +1,4 @@
-import Form from '@/components/form/form';
-import FormItem from '@/components/form/formItem';
+import {Form, FormItem} from '@/components';
 import { Ellipsis } from '@/components';
 import { useLoad } from '@tarojs/taro'
 import { Button, Input as TaroInput } from '@tarojs/components';
@@ -9,7 +8,7 @@ import './index.scss';
 const Input = (props:any) => {
   console.log('Input', props);
   return (
-    <TaroInput {...props} onChange={(e) => {props.onChange(e.detail.value);}} />
+    <TaroInput {...props} onChange={(e) => {props.onChange(e.detail.value);return e.detail.value}} />
   )
 };
 
@@ -27,12 +26,16 @@ export default function Index() {
 
   useLoad(() => {
     console.log('Page loaded.')
-  })
+  });
+
+  const handleSubmit = (e: any, values: any) => {
+    console.log('提交事件触发了', values);
+  }
 
   return (
     <div>
-      <Form onSubmit={(e, value) => {console.log(value);}} initValues={{username: 'hh', choose: true}}>
-      <FormItem  name="username">
+      <Form onFinish={handleSubmit} initialValues={{username: 'hh', choose: true}}>
+      <FormItem  name="username" rules={[{required: true}, {pattern: new RegExp(/^0$/)}]}>
         <Input />
       </FormItem>
       <FormItem  name="choose">
