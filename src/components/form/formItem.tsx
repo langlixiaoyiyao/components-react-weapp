@@ -16,7 +16,6 @@ type FormItemState = {
 
 export class FormItem extends React.Component<FormItemProps, FormItemState> {
 
-    static contextType: React.Context<any> = FormContext;
     constructor(props: FormItemProps) {
         super(props);
         this.state = {
